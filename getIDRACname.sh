@@ -14,7 +14,7 @@ read option;
 if [ $option -eq 1 ];then
   while read line; do
     echo "Controller IP: $line"
-    racadm -r $line -u root -p m4venir2! get iDRAC.NIC.DNSRacName | grep DNSRac
+    racadm -r $line -u root -p password get iDRAC.NIC.DNSRacName | grep DNSRac
     echo ""
     let "a+=1"
   done < "/root/TK/ipPlan/controller"
@@ -22,7 +22,7 @@ if [ $option -eq 1 ];then
 elif [ $option -eq 2 ];then
   while read line; do
     echo "Storage IP: $line"
-    racadm -r $line -u root -p m4venir2! get iDRAC.NIC.DNSRacName | grep DNSRac
+    racadm -r $line -u root -p password get iDRAC.NIC.DNSRacName | grep DNSRac
     echo ""
     let "b+=1"
   done < "/root/TK/ipPlan/storage"
@@ -30,7 +30,7 @@ elif [ $option -eq 2 ];then
 elif [ $option -eq 3 ];then
   while read line; do
     echo "Compute IP: $line"
-    racadm -r $line -u root -p m4venir2! get iDRAC.NIC.DNSRacName | grep DNSRac
+    racadm -r $line -u root -p password get iDRAC.NIC.DNSRacName | grep DNSRac
     echo ""
     let "c+=1"
   done < "/root/TK/ipPlan/compute"
