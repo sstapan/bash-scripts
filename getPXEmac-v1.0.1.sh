@@ -16,8 +16,8 @@ if [ $option -eq 1 ];then
   rm /root/TK/macPXE/bash-macPXEctrl 2> /dev/null
   rm temp 2> /dev/null
   while read line; do
-    ctrname=$(racadm -r $line -u root -p m4venir2! get iDRAC.NIC.DNSRacName | grep DNSRacName | awk -F"=" '{print $2$3}')
-    macadd=$(racadm -r $line -u root -p m4venir2! hwinventory nic | grep NIC.Integrated.1-1-1 | awk '{print $7}')
+    ctrname=$(racadm -r $line -u root -p password get iDRAC.NIC.DNSRacName | grep DNSRacName | awk -F"=" '{print $2$3}')
+    macadd=$(racadm -r $line -u root -p password hwinventory nic | grep NIC.Integrated.1-1-1 | awk '{print $7}')
     echo -e "$ctrname\t\t\t$macadd\t\t\t\t\t\t$line"
     echo -e "$ctrname  \t\t$macadd\t\t$line" >> temp
   done < "/root/TK/ipPlan/controller"
@@ -27,8 +27,8 @@ elif [ $option -eq 2 ];then
   rm /root/TK/macPXE/bash-macPXEstrg 2> /dev/null
   rm temp 2> /dev/null
   while read line; do
-    strname=$(racadm -r $line -u root -p m4venir2! get iDRAC.NIC.DNSRacName | grep DNSRacName | awk -F"=" '{print $2}')
-    macadd=$(racadm -r $line -u root -p m4venir2! hwinventory nic | grep NIC.Integrated.1-1-1 | awk '{print $7}')
+    strname=$(racadm -r $line -u root -p password get iDRAC.NIC.DNSRacName | grep DNSRacName | awk -F"=" '{print $2}')
+    macadd=$(racadm -r $line -u root -p password hwinventory nic | grep NIC.Integrated.1-1-1 | awk '{print $7}')
     echo -e "$strname\t\t\t$macadd\t\t\t\t\t\t$line"
     echo -e "$strname  \t\t$macadd\t\t$line" >> temp
   done < "/root/TK/ipPlan/storage"
@@ -38,8 +38,8 @@ elif [ $option -eq 3 ];then
   rm /root/TK/macPXE/bash-macPXEcomp 2> /dev/null
   rm temp 2> /dev/null
   while read line; do
-    cmpname=$(racadm -r $line -u root -p m4venir2! get iDRAC.NIC.DNSRacName | grep DNSRacName | awk -F"=" '{print $2}')
-    macadd=$(racadm -r $line -u root -p m4venir2! hwinventory nic | grep NIC.Integrated.1-1-1 | awk '{print $7}')
+    cmpname=$(racadm -r $line -u root -p password get iDRAC.NIC.DNSRacName | grep DNSRacName | awk -F"=" '{print $2}')
+    macadd=$(racadm -r $line -u root -p password hwinventory nic | grep NIC.Integrated.1-1-1 | awk '{print $7}')
     echo -e "$cmpname\t\t\t$macadd\t\t\t\t\t\t$line"
     echo -e "$cmpname  \t\t$macadd\t\t$line" >> temp
   done < "/root/TK/ipPlan/compute"
